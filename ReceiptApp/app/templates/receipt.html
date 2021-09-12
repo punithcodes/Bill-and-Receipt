@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt</title>
+</head>
+<body bgcolor="grey">
+<div>
+    <center>
+    <h1><u>RECEIPT</u></h1>
+        <p>
+            date : {{date}}<br><br>
+            time : {{time|slice:"5"}}<br><br>
+        </p>
+    <h3>
+        Item : {{item}}<br><br>
+        Price for each : {{price}} rs<br><br>
+        Quantity : {{quantity}}<br><br>
+        Total : {{total}} rs<br><br>
+    </h3>
+        <h2><a href="{% url 'home' %}">Back to home</a></h2>
+    </center>
+</div>
+</body>
+</html>

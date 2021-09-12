@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+<body bgcolor="grey">
+    <form action="receipt" method="post">
+        {% csrf_token %}
+        <h1><marquee scrollamount="9">Welcome User</marquee></h1>
+        <center>
+            <p>
+            Our Company Offers :<br>
+            5% discount on shopping above 2000rs . Hurry Up !
+            </p>
+            <h3>{{form.as_p}}</h3>
+            <input type="submit" value="submit">
+        </center>
+    </form>
+</body>
+</html>
