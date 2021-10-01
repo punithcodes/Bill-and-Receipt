@@ -5,9 +5,12 @@ from django.views.decorators.csrf import csrf_exempt
 import io
 from rest_framework.parsers import JSONParser
 
+# Here I have defined %tax based on categories.
 category_tax = {'Medicine': 5, 'Cloths': 5, 'CD/DVD': 3, 'Food': 5, 'Imported': 18, 'Books': 0, 'Pants': 5}
 
 
+''' This function is responsible for getting data from the client and sending back the required data in a JSON format as a response. 
+Rather than choosing Mixins or Concrete classes, purposely I have coded each step how Api gets data from client , do calculations and send it back to client'''
 @csrf_exempt
 def billing_api(request):
     if request.method == 'POST':
@@ -38,6 +41,7 @@ def billing_api(request):
         return HttpResponse(json_data, content_type='application/json')
 
 
+# This function is responsible for calculating the total tax based on category and quantity.
 def calculate_tax(total_price, category):
     if category.lower() == 'cloths':
         if total_price < 1000:
@@ -50,6 +54,7 @@ def calculate_tax(total_price, category):
         return tax
 
 
+# This function is responsible for calculating the finall bill amount of the client.
 def final_bill(bill):
     if bill > 2000:
         total_bill = (bill * 5) / 100
