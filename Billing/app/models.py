@@ -1,7 +1,6 @@
 from django.db import models
 
-# Create your models here.
-
+# These are the categories which can be choose by user.
 CATEGORY_CHOICES = (
     ('Medicine', 'Medicine'),
     ('Food', 'Food'),
@@ -13,6 +12,7 @@ CATEGORY_CHOICES = (
 )
 
 
+# This class is responsible for creating user bill.
 class BillingModel(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=10)
     item = models.CharField(max_length=100)
